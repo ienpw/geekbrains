@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="weatherClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="th6-xF-jku">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWU-AG-HaS" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scull" translatesAutoresizingMaskIntoConstraints="NO" id="Jla-XK-7i4" userLabel="skull">
+                                                <rect key="frame" x="47.666666666666657" y="185" width="280" height="199"/>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Логин" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I6s-id-rHi">
+                                                <rect key="frame" x="36.333333333333343" y="442" width="302.33333333333326" height="45.666666666666686"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.19825594190140844" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="bKW-jf-y43"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Пароль" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qao-xi-uPz">
+                                                <rect key="frame" x="36.666666666666657" y="512.66666666666663" width="302.66666666666674" height="45"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.19825594190140844" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZ8-5x-62w">
+                                                <rect key="frame" x="36.666666666666657" y="582.66666666666663" width="302.66666666666674" height="45"/>
+                                                <color key="backgroundColor" red="0.32156862745098036" green="0.70588235294117641" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="ВОЙТИ"/>
+                                                <connections>
+                                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J4O-sZ-4kM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Qao-xi-uPz" firstAttribute="centerX" secondItem="gWU-AG-HaS" secondAttribute="centerX" id="18t-MI-uEz"/>
+                                            <constraint firstItem="I6s-id-rHi" firstAttribute="width" secondItem="gWU-AG-HaS" secondAttribute="width" multiplier="0.7" constant="40" id="1RL-az-nDB"/>
+                                            <constraint firstItem="BZ8-5x-62w" firstAttribute="top" secondItem="Qao-xi-uPz" secondAttribute="bottom" constant="25" id="4tR-uB-3Oa"/>
+                                            <constraint firstItem="BZ8-5x-62w" firstAttribute="height" secondItem="Qao-xi-uPz" secondAttribute="height" id="Hpz-cA-mPW"/>
+                                            <constraint firstItem="Qao-xi-uPz" firstAttribute="top" secondItem="I6s-id-rHi" secondAttribute="bottom" constant="25" id="Ifs-39-02g"/>
+                                            <constraint firstItem="I6s-id-rHi" firstAttribute="centerX" secondItem="gWU-AG-HaS" secondAttribute="centerX" id="Rie-QP-9mi"/>
+                                            <constraint firstItem="Qao-xi-uPz" firstAttribute="width" secondItem="I6s-id-rHi" secondAttribute="width" id="VYI-mc-Jkg"/>
+                                            <constraint firstItem="Jla-XK-7i4" firstAttribute="centerX" secondItem="gWU-AG-HaS" secondAttribute="centerX" id="a9q-gT-Rbx"/>
+                                            <constraint firstItem="I6s-id-rHi" firstAttribute="centerY" secondItem="gWU-AG-HaS" secondAttribute="centerY" constant="58" id="fRB-qk-ExE"/>
+                                            <constraint firstItem="BZ8-5x-62w" firstAttribute="centerX" secondItem="gWU-AG-HaS" secondAttribute="centerX" id="pgI-af-R5N"/>
+                                            <constraint firstItem="BZ8-5x-62w" firstAttribute="width" secondItem="Qao-xi-uPz" secondAttribute="width" id="qYL-LH-Wq2"/>
+                                            <constraint firstItem="Jla-XK-7i4" firstAttribute="centerY" secondItem="gWU-AG-HaS" secondAttribute="centerY" constant="-121.75" id="xIO-is-iCW"/>
+                                            <constraint firstItem="Qao-xi-uPz" firstAttribute="height" secondItem="I6s-id-rHi" secondAttribute="height" id="yng-fh-xJs"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gWU-AG-HaS" secondAttribute="trailing" id="9ze-Kk-fbF"/>
+                                    <constraint firstItem="gWU-AG-HaS" firstAttribute="leading" secondItem="th6-xF-jku" secondAttribute="leading" id="VT5-7y-Ml8"/>
+                                    <constraint firstAttribute="bottom" secondItem="gWU-AG-HaS" secondAttribute="bottom" id="WvI-M8-MgM"/>
+                                    <constraint firstItem="gWU-AG-HaS" firstAttribute="top" secondItem="th6-xF-jku" secondAttribute="top" id="YzP-p5-7Dq"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gWU-AG-HaS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="3KV-qV-z1D"/>
+                            <constraint firstItem="gWU-AG-HaS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="6EE-Tp-ej3"/>
+                            <constraint firstItem="th6-xF-jku" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ejd-iw-LH3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="th6-xF-jku" secondAttribute="bottom" id="LeG-8h-ODc"/>
+                            <constraint firstItem="th6-xF-jku" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Wp0-UZ-xLh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="th6-xF-jku" secondAttribute="trailing" id="rWa-A0-04R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginTextField" destination="I6s-id-rHi" id="0Lf-f8-bLK"/>
+                        <outlet property="passwordTextField" destination="Qao-xi-uPz" id="VaO-Cg-Pca"/>
+                        <outlet property="scrollView" destination="th6-xF-jku" id="a0Z-EL-0mf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79.200000000000003" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="scull" width="280" height="199"/>
+    </resources>
+</document>
