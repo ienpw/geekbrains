@@ -15,14 +15,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBAction func loginButton(_ sender: Any) {
         // получаем текст логина
-        let login = loginTextField.text!
+//        let login = loginTextField.text!
         // получаем текст пароль
-        let password = passwordTextField.text!
+//        let password = passwordTextField.text!
         // выводим результат
-        let alertController = UIAlertController(title: "LoginForm", message: "Ваш логин: \(login)\nВаш пароль: \(password)", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
-        
-        self.present(alertController, animated: true, completion: nil)
+//        let alertController = UIAlertController(title: "LoginForm", message: "Ваш логин: \(login)\nВаш пароль: \(password)", preferredStyle: UIAlertControllerStyle.alert)
+//        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+//        
+//        self.present(alertController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
