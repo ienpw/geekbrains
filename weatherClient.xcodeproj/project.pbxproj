@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42020200590DCAFFB77475EE /* Pods_weatherClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 100AC21BD411EDAB7490F5C4 /* Pods_weatherClient.framework */; };
+		9F2C34EA20E517D20061757C /* VKService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2C34E920E517D20061757C /* VKService.swift */; };
+		9F2C34EC20E527820061757C /* VKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2C34EB20E527820061757C /* VKLoginViewController.swift */; };
 		9FA6E5DB20DEA56A00FCA4C8 /* FriendsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA6E5DA20DEA56A00FCA4C8 /* FriendsViewCell.swift */; };
 		9FA6E5DD20DEACEC00FCA4C8 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA6E5DC20DEACEC00FCA4C8 /* FriendsViewController.swift */; };
 		9FA6E5DF20DFDA0500FCA4C8 /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA6E5DE20DFDA0500FCA4C8 /* AllGroupsViewController.swift */; };
@@ -21,9 +24,16 @@
 		9FF7A65020D6F7A20001E445 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF7A64E20D6F7A20001E445 /* Main.storyboard */; };
 		9FF7A65220D6F7A20001E445 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FF7A65120D6F7A20001E445 /* Assets.xcassets */; };
 		9FF7A65520D6F7A20001E445 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF7A65320D6F7A20001E445 /* LaunchScreen.storyboard */; };
+		9FFAC4E620E98A6A0049F6BC /* TokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFAC4E520E98A6A0049F6BC /* TokenViewController.swift */; };
+		9FFAC4E820E98A9B0049F6BC /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFAC4E720E98A9B0049F6BC /* Friends.swift */; };
+		9FFAC4EA20E9AF0E0049F6BC /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFAC4E920E9AF0E0049F6BC /* Photos.swift */; };
+		9FFAC4EC20EA153B0049F6BC /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFAC4EB20EA153B0049F6BC /* Groups.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		100AC21BD411EDAB7490F5C4 /* Pods_weatherClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F2C34E920E517D20061757C /* VKService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKService.swift; sourceTree = "<group>"; };
+		9F2C34EB20E527820061757C /* VKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginViewController.swift; sourceTree = "<group>"; };
 		9FA6E5DA20DEA56A00FCA4C8 /* FriendsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewCell.swift; sourceTree = "<group>"; };
 		9FA6E5DC20DEACEC00FCA4C8 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		9FA6E5DE20DFDA0500FCA4C8 /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +50,12 @@
 		9FF7A65120D6F7A20001E445 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FF7A65420D6F7A20001E445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9FF7A65620D6F7A20001E445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FFAC4E520E98A6A0049F6BC /* TokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewController.swift; sourceTree = "<group>"; };
+		9FFAC4E720E98A9B0049F6BC /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
+		9FFAC4E920E9AF0E0049F6BC /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		9FFAC4EB20EA153B0049F6BC /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		E8CE386D6FEA9BF606305453 /* Pods-weatherClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weatherClient/Pods-weatherClient.debug.xcconfig"; sourceTree = "<group>"; };
+		E9024154EC5B401FD68CAEB2 /* Pods-weatherClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-weatherClient/Pods-weatherClient.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +63,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42020200590DCAFFB77475EE /* Pods_weatherClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		478467ED93FF69AC4252B6C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				100AC21BD411EDAB7490F5C4 /* Pods_weatherClient.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		48F8722EAA25EB29CD779838 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E8CE386D6FEA9BF606305453 /* Pods-weatherClient.debug.xcconfig */,
+				E9024154EC5B401FD68CAEB2 /* Pods-weatherClient.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9F2C34E820E515790061757C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9F2C34E920E517D20061757C /* VKService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		9FF7A63E20D6F7A20001E445 = {
 			isa = PBXGroup;
 			children = (
 				9FF7A64920D6F7A20001E445 /* weatherClient */,
 				9FF7A64820D6F7A20001E445 /* Products */,
+				48F8722EAA25EB29CD779838 /* Pods */,
+				478467ED93FF69AC4252B6C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +120,7 @@
 				9FF7A65D20D7BCAC0001E445 /* Controllers */,
 				9FF7A65C20D7BCA30001E445 /* Models */,
 				9FF7A65E20D7BCB40001E445 /* Views */,
+				9F2C34E820E515790061757C /* Services */,
 				9FF7A65120D6F7A20001E445 /* Assets.xcassets */,
 				9FF7A65620D6F7A20001E445 /* Info.plist */,
 			);
@@ -85,6 +130,9 @@
 		9FF7A65C20D7BCA30001E445 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9FFAC4E720E98A9B0049F6BC /* Friends.swift */,
+				9FFAC4E920E9AF0E0049F6BC /* Photos.swift */,
+				9FFAC4EB20EA153B0049F6BC /* Groups.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -98,6 +146,8 @@
 				9FA6E5E620E02A1500FCA4C8 /* FriendInfoViewController.swift */,
 				9FA6E5DE20DFDA0500FCA4C8 /* AllGroupsViewController.swift */,
 				9FA6E5E220E0146C00FCA4C8 /* MyGroupsViewController.swift */,
+				9F2C34EB20E527820061757C /* VKLoginViewController.swift */,
+				9FFAC4E520E98A6A0049F6BC /* TokenViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -130,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9FF7A65920D6F7A20001E445 /* Build configuration list for PBXNativeTarget "weatherClient" */;
 			buildPhases = (
+				F88B7601E359C265C194554E /* [CP] Check Pods Manifest.lock */,
 				9FF7A64320D6F7A20001E445 /* Sources */,
 				9FF7A64420D6F7A20001E445 /* Frameworks */,
 				9FF7A64520D6F7A20001E445 /* Resources */,
+				7B9E49B69187434200C0BCD8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -190,6 +242,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7B9E49B69187434200C0BCD8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-weatherClient/Pods-weatherClient-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-weatherClient/Pods-weatherClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F88B7601E359C265C194554E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-weatherClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9FF7A64320D6F7A20001E445 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -199,12 +294,18 @@
 				9FA6E5E520E0227600FCA4C8 /* MyGroupsViewCell.swift in Sources */,
 				9FA6E5E720E02A1500FCA4C8 /* FriendInfoViewController.swift in Sources */,
 				9FA6E5DD20DEACEC00FCA4C8 /* FriendsViewController.swift in Sources */,
+				9FFAC4EA20E9AF0E0049F6BC /* Photos.swift in Sources */,
 				9FF7A64B20D6F7A20001E445 /* AppDelegate.swift in Sources */,
 				9FA6E5DB20DEA56A00FCA4C8 /* FriendsViewCell.swift in Sources */,
 				9FA6E5E320E0146C00FCA4C8 /* MyGroupsViewController.swift in Sources */,
 				9FA6E5E920E031E900FCA4C8 /* FriendInfoViewCell.swift in Sources */,
+				9F2C34EA20E517D20061757C /* VKService.swift in Sources */,
 				9FA6E5DF20DFDA0500FCA4C8 /* AllGroupsViewController.swift in Sources */,
 				9FA6E5E120DFDB3500FCA4C8 /* GroupsViewCell.swift in Sources */,
+				9FFAC4EC20EA153B0049F6BC /* Groups.swift in Sources */,
+				9FFAC4E620E98A6A0049F6BC /* TokenViewController.swift in Sources */,
+				9F2C34EC20E527820061757C /* VKLoginViewController.swift in Sources */,
+				9FFAC4E820E98A9B0049F6BC /* Friends.swift in Sources */,
 				9FC4CA7120DBAB21002CC5CB /* MyTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +441,7 @@
 		};
 		9FF7A65A20D6F7A20001E445 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8CE386D6FEA9BF606305453 /* Pods-weatherClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -354,6 +456,7 @@
 		};
 		9FF7A65B20D6F7A20001E445 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9024154EC5B401FD68CAEB2 /* Pods-weatherClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

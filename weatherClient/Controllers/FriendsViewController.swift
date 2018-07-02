@@ -8,17 +8,33 @@
 
 import UIKit
 
-class FriendsViewController: UITableViewController {
+class FriendsViewController: UITableViewController, TokenViewController {
     
-    let friends: [(avatar: String, name: String)] = [
-        (avatar: "friendAvatar", name: "Вася"),
-        (avatar: "friendAvatar", name: "Петя"),
-        (avatar: "girlAvatar", name: "Маша")
-    ]
+//    let friends: [(avatar: String, name: String)] = [
+//        (avatar: "friendAvatar", name: "Вася"),
+//        (avatar: "friendAvatar", name: "Петя"),
+//        (avatar: "girlAvatar", name: "Маша")
+//    ]
+    
+    var token: String?
+    var friends: [Friends] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let service = VKService(token: token)
+        service.getAllFriends() { (friends, error) in
+            // TODO: обработка ошибок
+            if let error = error {
+                print(error)
+            }
+            // получили массив друзей
+            if let friends = friends {
+                self.friends = friends
+                // обновить tableView
+                self.tableView?.reloadData()
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -31,8 +47,8 @@ class FriendsViewController: UITableViewController {
         
         // получаем друга
         let friend = friends[indexPath.row]
-        cell.avatarImage.image = UIImage(named: friend.avatar)
-        cell.titleLabel.text = friend.name
+        // выводим
+        cell.setupFriends(friend)
         
         return cell
     }
@@ -40,8 +56,9 @@ class FriendsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let friendInfoViewController = segue.destination as? FriendInfoViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
-                // передаем друга в FriendInfoViewController
+                // передаем id друга и токен в FriendInfoViewController
                 friendInfoViewController.friend = friends[indexPath.row]
+                friendInfoViewController.token = token
             }
         }
     }

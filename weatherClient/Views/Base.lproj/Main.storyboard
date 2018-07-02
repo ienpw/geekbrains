@@ -1,17 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6sv-EU-ySP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="G9x-Ox-oqb">
+            <objects>
+                <viewController id="6sv-EU-ySP" customClass="VKLoginViewController" customModule="weatherClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x7h-H9-Kkw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQc-bG-Mx4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eQc-bG-Mx4" firstAttribute="bottom" secondItem="wYt-pN-mwB" secondAttribute="bottom" id="8pY-Hm-F3a"/>
+                            <constraint firstItem="eQc-bG-Mx4" firstAttribute="top" secondItem="x7h-H9-Kkw" secondAttribute="top" id="jOh-8h-yDK"/>
+                            <constraint firstItem="eQc-bG-Mx4" firstAttribute="leading" secondItem="wYt-pN-mwB" secondAttribute="leading" id="sZh-Ci-NTi"/>
+                            <constraint firstItem="eQc-bG-Mx4" firstAttribute="trailing" secondItem="wYt-pN-mwB" secondAttribute="trailing" id="skH-Mz-LWq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wYt-pN-mwB"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="eQc-bG-Mx4" id="vZm-gj-vl1"/>
+                        <segue destination="qu4-RO-Iyl" kind="presentation" identifier="myTabSegue" id="0FN-1L-2j9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQl-uN-yCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79" y="133"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -66,7 +100,6 @@
                                                 <state key="normal" title="ВОЙТИ"/>
                                                 <connections>
                                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J4O-sZ-4kM"/>
-                                                    <segue destination="qu4-RO-Iyl" kind="presentation" id="EeL-xR-vHq"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -115,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-79.200000000000003" y="132.68365817091455"/>
+            <point key="canvasLocation" x="-79" y="1034"/>
         </scene>
         <!--Мои группы-->
         <scene sceneID="U1d-gO-oIB">
@@ -126,33 +159,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" rowHeight="72" id="v92-56-1IV" customClass="MyGroupsViewCell" customModule="weatherClient" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GroupCell" rowHeight="72" id="v92-56-1IV" customClass="MyGroupsViewCell" customModule="weatherClient" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v92-56-1IV" id="jCJ-SE-NPF">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v92-56-1IV" id="jCJ-SE-NPF">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="groupAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="4Ci-y2-wVm">
-                                            <rect key="frame" x="16" y="4" width="64" height="64.5"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="groupAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="4Ci-y2-wVm">
+                                            <rect key="frame" x="16" y="4" width="64" height="64"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="64" id="vyQ-uC-mzz"/>
+                                                <constraint firstAttribute="width" constant="64" id="Pla-xf-PF3"/>
+                                                <constraint firstAttribute="height" constant="64" id="USh-jH-Oyh"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dV-Rt-bJ3">
-                                            <rect key="frame" x="96" y="26" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dV-Rt-bJ3">
+                                            <rect key="frame" x="96" y="25.5" width="263" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="4Ci-y2-wVm" firstAttribute="centerY" secondItem="jCJ-SE-NPF" secondAttribute="centerY" id="4vO-tp-fhu"/>
-                                        <constraint firstItem="4Ci-y2-wVm" firstAttribute="leading" secondItem="jCJ-SE-NPF" secondAttribute="leading" constant="16" id="Azy-nP-lPl"/>
-                                        <constraint firstItem="6dV-Rt-bJ3" firstAttribute="centerY" secondItem="4Ci-y2-wVm" secondAttribute="centerY" id="HkU-gH-dE2"/>
-                                        <constraint firstItem="4Ci-y2-wVm" firstAttribute="top" secondItem="jCJ-SE-NPF" secondAttribute="top" constant="4" id="Izh-zA-bPC"/>
-                                        <constraint firstItem="6dV-Rt-bJ3" firstAttribute="leading" secondItem="4Ci-y2-wVm" secondAttribute="trailing" constant="16" id="Ndh-Tc-4YX"/>
-                                        <constraint firstAttribute="bottom" secondItem="4Ci-y2-wVm" secondAttribute="bottom" constant="4" id="Q9B-YX-xFz"/>
+                                        <constraint firstAttribute="bottom" secondItem="4Ci-y2-wVm" secondAttribute="bottom" constant="4" id="1os-33-rZf"/>
+                                        <constraint firstItem="4Ci-y2-wVm" firstAttribute="top" secondItem="jCJ-SE-NPF" secondAttribute="top" constant="4" id="Is6-XF-mLL"/>
+                                        <constraint firstItem="6dV-Rt-bJ3" firstAttribute="centerY" secondItem="jCJ-SE-NPF" secondAttribute="centerY" id="Jmi-jg-Eqg"/>
+                                        <constraint firstItem="6dV-Rt-bJ3" firstAttribute="leading" secondItem="4Ci-y2-wVm" secondAttribute="trailing" constant="16" id="SDa-PF-pr1"/>
+                                        <constraint firstItem="4Ci-y2-wVm" firstAttribute="leading" secondItem="jCJ-SE-NPF" secondAttribute="leading" constant="16" id="aMe-gj-gGl"/>
+                                        <constraint firstAttribute="trailing" secondItem="6dV-Rt-bJ3" secondAttribute="trailing" constant="16" id="mkb-UD-8ao"/>
+                                        <constraint firstItem="4Ci-y2-wVm" firstAttribute="centerY" secondItem="jCJ-SE-NPF" secondAttribute="centerY" id="qga-4r-gBQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -179,7 +214,7 @@
             </objects>
             <point key="canvasLocation" x="2709.5999999999999" y="661.61919040479768"/>
         </scene>
-        <!--Все группы-->
+        <!--Поиск групп-->
         <scene sceneID="8gu-fR-aC2">
             <objects>
                 <tableViewController id="TK9-i7-D9F" customClass="AllGroupsViewController" customModule="weatherClient" customModuleProvider="target" sceneMemberID="viewController">
@@ -187,9 +222,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" translucent="NO" id="LrX-dL-TNq">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" rowHeight="72" id="vOJ-Rg-p6e" customClass="GroupsViewCell" customModule="weatherClient" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="72"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vOJ-Rg-p6e" id="3f6-pZ-Let">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
@@ -229,7 +272,7 @@
                             <outlet property="delegate" destination="TK9-i7-D9F" id="iwO-ML-zf9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Все группы" id="5wc-04-1B1"/>
+                    <navigationItem key="navigationItem" title="Поиск групп" id="5wc-04-1B1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SJM-VY-o1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3XW-TX-lv6" userLabel="Exit" sceneMemberID="exit"/>
@@ -255,6 +298,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="friendAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="Vlo-DA-5EZ">
                                             <rect key="frame" x="16" y="4" width="64" height="64.5"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" constant="64" id="MUq-Ji-KUA"/>
                                                 <constraint firstAttribute="height" constant="64" id="aZw-8n-olX"/>
                                             </constraints>
                                         </imageView>
@@ -304,44 +348,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uXc-fH-Zpg">
-                            <size key="itemSize" width="375" height="265"/>
+                            <size key="itemSize" width="375" height="206"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" restorationIdentifier="FriendInfo" reuseIdentifier="FriendInfo" id="NHW-gO-1FO" customClass="FriendInfoViewCell" customModule="weatherClient" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="265"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="265"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M8W-g4-nmF">
-                                            <rect key="frame" x="24" y="24" width="128" height="128"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M8W-g4-nmF">
+                                            <rect key="frame" x="20" y="20" width="335" height="166"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="128" id="ZYM-o1-yxP"/>
-                                                <constraint firstAttribute="height" constant="128" id="c5u-9F-5R9"/>
+                                                <constraint firstAttribute="width" constant="335" id="jT6-ri-dE0"/>
+                                                <constraint firstAttribute="height" constant="170" id="lFS-a3-gKM"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fC-ze-WuV">
-                                            <rect key="frame" x="168" y="24" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="1fC-ze-WuV" firstAttribute="leading" secondItem="M8W-g4-nmF" secondAttribute="trailing" constant="16" id="4jz-tq-7oh"/>
-                                    <constraint firstItem="M8W-g4-nmF" firstAttribute="leading" secondItem="NHW-gO-1FO" secondAttribute="leadingMargin" constant="16" id="Hx8-2i-VT2"/>
-                                    <constraint firstItem="M8W-g4-nmF" firstAttribute="top" secondItem="NHW-gO-1FO" secondAttribute="topMargin" constant="16" id="NCV-Ru-ENu"/>
-                                    <constraint firstItem="1fC-ze-WuV" firstAttribute="top" secondItem="M8W-g4-nmF" secondAttribute="top" id="czm-ip-noI"/>
+                                    <constraint firstItem="M8W-g4-nmF" firstAttribute="centerX" secondItem="NHW-gO-1FO" secondAttribute="centerX" id="aM2-lo-Iof"/>
                                 </constraints>
-                                <size key="customSize" width="375" height="265"/>
+                                <size key="customSize" width="375" height="206"/>
                                 <connections>
                                     <outlet property="friendImage" destination="M8W-g4-nmF" id="V6a-QX-PI0"/>
-                                    <outlet property="friendName" destination="1fC-ze-WuV" id="pp1-nd-9Dj"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -358,7 +392,7 @@
         <!--My Tab Bar Controller-->
         <scene sceneID="rYv-jg-KsO">
             <objects>
-                <tabBarController id="qu4-RO-Iyl" customClass="MyTabBarController" customModule="weatherClient" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBar" id="qu4-RO-Iyl" customClass="MyTabBarController" customModule="weatherClient" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FSY-aJ-xp0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

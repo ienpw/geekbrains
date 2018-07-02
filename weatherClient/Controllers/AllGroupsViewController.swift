@@ -15,10 +15,17 @@ class AllGroupsViewController: UITableViewController {
         (avatar: "groupAvatar", name: "Группа 2"),
         (avatar: "groupAvatar", name: "Группа 3")
     ]
+    var group: Groups?
+//    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        // searchController setup
+//        searchController.searchResultsUpdater = self
+//        searchController.obscuresBackgroundDuringPresentation = false
+//        navigationItem.searchController = searchController
+//        definesPresentationContext = true
     }
 
     // MARK: - Table view data source
@@ -36,4 +43,24 @@ class AllGroupsViewController: UITableViewController {
         
         return cell
     }
+    
+//    func searchBarIsEmpty() -> Bool {
+//        return searchController.searchBar.text?.isEmpty ?? true
+//    }
+//
+//    func getContentForSearchText(_ searchText: String, scope: String = "All") {
+//        filteredGroups = groups.filter({ (name: String) -> Bool in
+//            return groups["name"].lowercased().contains(searchText.lowercased())
+//        })
+//
+//        tableView.reloadData()
+//    }
 }
+
+//extension AllGroupsViewController: UISearchResultsUpdating {
+//    // делегат
+//    func updateSearchResults(for searchController: UISearchController) {
+//        getContentForSearchText(searchController.searchBar.text!)
+//    }
+//}
+

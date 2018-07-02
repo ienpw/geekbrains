@@ -7,8 +7,20 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FriendsViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!
+    
+    func setupFriends(_ friends: Friends) {
+        // аватар
+        avatarImage.kf.setImage(with: URL(string: friends.avatarImage))
+        // делаем закругленные углы
+        avatarImage.layer.cornerRadius = avatarImage.frame.size.width / 2
+        avatarImage.clipsToBounds = true
+
+        // имя
+        titleLabel.text = "\(friends.firstName) \(friends.lastName)"
+    }
 }

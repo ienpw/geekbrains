@@ -10,5 +10,12 @@ import UIKit
 
 class FriendInfoViewCell: UICollectionViewCell {
     @IBOutlet weak var friendImage: UIImageView!
-    @IBOutlet weak var friendName: UILabel!
+    
+    func setupPhoto(_ photos: Photos) {
+        // фото
+        friendImage.kf.setImage(with: URL(string: photos.url))
+        // делаем закругленные углы
+        //avatarImage.layer.cornerRadius = avatarImage.frame.size.width / 2
+        //avatarImage.clipsToBounds = true        
+    }
 }

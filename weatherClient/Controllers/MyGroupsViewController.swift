@@ -8,13 +8,28 @@
 
 import UIKit
 
-class MyGroupsViewController: UITableViewController {
+class MyGroupsViewController: UITableViewController, TokenViewController {
     
-    var groups: [(avatar: String, name: String)] = []
+    //var groups: [(avatar: String, name: String)] = []
+    var token: String?
+    var groups: [Groups] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let service = VKService(token: token)
+        service.getMyGroups() { (groups, error) in
+            // TODO: обработка ошибок
+            if let error = error {
+                print(error)
+            }
+            // получили массив групп
+            if let groups = groups {
+                self.groups = groups
+                // обновить tableView
+                self.tableView?.reloadData()
+            }
+        }
     }
     
     @IBAction func addGroup(_ segue: UIStoryboardSegue) {
@@ -28,9 +43,9 @@ class MyGroupsViewController: UITableViewController {
             // и удаляем ее, т.к. добавить группу можно только один раз,
             // но я не понял как обновить tableView, чтобы удаленная группа
             // перестала отображаться в таблице
-            let group = allGroupsViewController.groups.remove(at: indexPath.row)
+//            let group = allGroupsViewController.groups.remove(at: indexPath.row)
             // добавляем полученную группу в массив в MyGroupsViewController
-            groups.append(group)
+//            groups.append(group)
             // обновляем таблицу
             tableView.reloadData()
         }
@@ -46,13 +61,13 @@ class MyGroupsViewController: UITableViewController {
         
         // получаем группу
         let group = groups[indexPath.row]
-                
-        cell.avatarImage?.image = UIImage(named: group.avatar)
-        cell.titleLabel?.text = group.name
+        // выводим
+        cell.setupGroups(group)
         
         return cell
     }
     
+    // Удаление группы
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             groups.remove(at: indexPath.row)

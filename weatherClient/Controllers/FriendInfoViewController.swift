@@ -10,27 +10,44 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class FriendInfoViewController: UICollectionViewController {
+class FriendInfoViewController: UICollectionViewController, TokenViewController {
     
-    var friend: (avatar: String, name: String) = ("","")
+    var token: String?
+    var friend: Friends?
+    var photos: [Photos] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = friend.name
+        // title экрана
+        self.title = "\(friend!.firstName) \(friend!.lastName)"
+        
+        let service = VKService(token: token)
+        service.getFriendPhotos(userID: friend!.id) { (photos, error) in
+            // TODO: обработка ошибок
+            if let error = error {
+                print(error)
+            }
+            // получили массив фотографий
+            if let photos = photos {
+                self.photos = photos
+                // обновить tableView
+                self.collectionView?.reloadData()
+            }
+        }
     }
 
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return photos.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendInfo", for: indexPath) as! FriendInfoViewCell
     
         // Configure the cell
-        cell.friendName.text = friend.name
-        cell.friendImage.image = UIImage(named: friend.avatar)
+        let photo = photos[indexPath.row]
+        cell.setupPhoto(photo)
     
         return cell
     }
