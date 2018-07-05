@@ -98,7 +98,7 @@ class VKService {
     
     // сохранение данных в Realm
     func saveData() {
-        let realm = try! Realm()
+        //let realm = try! Realm()
         
     }
 }
