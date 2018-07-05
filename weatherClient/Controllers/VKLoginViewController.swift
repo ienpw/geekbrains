@@ -13,7 +13,7 @@ class VKLoginViewController: UIViewController {
     
     @IBOutlet weak var webView: WKWebView!
     
-    var token: String?
+    //var token: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,17 +25,17 @@ class VKLoginViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let tabBar = segue.destination as? UITabBarController, let tabBarViewControllers = tabBar.viewControllers {
-            for viewController in tabBar.viewControllers! {
-                if let navigationViewController = viewController as? UINavigationController {
-                    if var tokenViewController = navigationViewController.viewControllers.first as? TokenViewController {
-                        tokenViewController.token = token
-                    }
-                }
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let tabBar = segue.destination as? UITabBarController, let tabBarViewControllers = tabBar.viewControllers {
+//            for viewController in tabBar.viewControllers! {
+//                if let navigationViewController = viewController as? UINavigationController {
+//                    if var tokenViewController = navigationViewController.viewControllers.first as? TokenViewController {
+//                        tokenViewController.token = token
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     func vkAuthRequest() -> URLRequest? {
         var urlComponents = URLComponents()
@@ -81,13 +81,11 @@ extension VKLoginViewController: WKNavigationDelegate {
         }
         
         if let token = params["access_token"] {
-            self.token = token
-            
-            //print(token)
+            // save token
+            UserDefaults.standard.set(token, forKey: "token")
             
             performSegue(withIdentifier: "myTabSegue", sender: nil)
         }
-        
         
         decisionHandler(.cancel)
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsViewController: UITableViewController, TokenViewController {
+class FriendsViewController: UITableViewController {
     
 //    let friends: [(avatar: String, name: String)] = [
 //        (avatar: "friendAvatar", name: "Вася"),
@@ -16,13 +16,12 @@ class FriendsViewController: UITableViewController, TokenViewController {
 //        (avatar: "girlAvatar", name: "Маша")
 //    ]
     
-    var token: String?
     var friends: [Friends] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let service = VKService(token: token)
+        let service = VKService()
         service.getAllFriends() { (friends, error) in
             // TODO: обработка ошибок
             if let error = error {
@@ -58,7 +57,7 @@ class FriendsViewController: UITableViewController, TokenViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 // передаем id друга и токен в FriendInfoViewController
                 friendInfoViewController.friend = friends[indexPath.row]
-                friendInfoViewController.token = token
+                //friendInfoViewController.token = token
             }
         }
     }

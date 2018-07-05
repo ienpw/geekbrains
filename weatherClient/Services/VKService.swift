@@ -16,9 +16,9 @@ class VKService {
     let apiVersion = "5.80"
     var parameters: Parameters
     
-    init(token: String?) {
+    init(token: String? = nil) {
         // получаем токен
-        guard let token = token else {
+        guard let token = UserDefaults.standard.string(forKey: "token") else {
             fatalError()
         }
         // задаем параметры по-умолчанию для запросов
@@ -94,5 +94,11 @@ class VKService {
                 completion?(json, nil)
             }
         }
+    }
+    
+    // сохранение данных в Realm
+    func saveData() {
+        let realm = try! Realm()
+        
     }
 }

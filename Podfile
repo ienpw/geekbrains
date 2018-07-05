@@ -7,5 +7,6 @@ target 'weatherClient' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'Kingfisher'
+  pod 'RealmSwift'
 
 end

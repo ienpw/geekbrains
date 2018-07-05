@@ -8,14 +8,17 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
-class Friends {
-    var id: String = ""
-    var firstName: String = ""
-    var lastName: String = ""
-    var avatarImage: String = ""
+class Friends: Object {
+    @objc dynamic var id: String = ""
+    @objc dynamic var firstName: String = ""
+    @objc dynamic var lastName: String = ""
+    @objc dynamic var avatarImage: String = ""
     
-    init(json: JSON) {
+    convenience init(json: JSON) {
+        self.init()
+        
         self.id = json["id"].stringValue
         self.firstName = json["first_name"].stringValue
         self.lastName = json["last_name"].stringValue
@@ -23,8 +26,9 @@ class Friends {
     }
 }
 
-extension Friends: CustomStringConvertible {
-    var description: String {
-        return "\(firstName) \(lastName)"
-    }
-}
+//extension Friends: CustomStringConvertible {
+//    var description: String {
+//        return "\(firstName) \(lastName)"
+//    }
+//}
+

@@ -8,16 +8,15 @@
 
 import UIKit
 
-class MyGroupsViewController: UITableViewController, TokenViewController {
+class MyGroupsViewController: UITableViewController {
     
     //var groups: [(avatar: String, name: String)] = []
-    var token: String?
     var groups: [Groups] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let service = VKService(token: token)
+        let service = VKService()
         service.getMyGroups() { (groups, error) in
             // TODO: обработка ошибок
             if let error = error {

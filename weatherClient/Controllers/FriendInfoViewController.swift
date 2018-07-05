@@ -10,9 +10,8 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class FriendInfoViewController: UICollectionViewController, TokenViewController {
+class FriendInfoViewController: UICollectionViewController {
     
-    var token: String?
     var friend: Friends?
     var photos: [Photos] = []
 
@@ -22,7 +21,7 @@ class FriendInfoViewController: UICollectionViewController, TokenViewController 
         // title экрана
         self.title = "\(friend!.firstName) \(friend!.lastName)"
         
-        let service = VKService(token: token)
+        let service = VKService()
         service.getFriendPhotos(userID: friend!.id) { (photos, error) in
             // TODO: обработка ошибок
             if let error = error {
