@@ -57,7 +57,7 @@ class VKService {
             }
             if let json = json {
                 let photos = json["response"]["items"].arrayValue.map { Photos(json: $0) }
-                self.saveData(photos)
+                //self.saveData(photos)
                 completion?(photos, nil)
             }
         }
@@ -80,9 +80,18 @@ class VKService {
     }
     
     // Найти группы
-    func searchGroups(query: String) {
+    func searchGroups(query: String, completion: (([Groups]?, Error?) -> Void)?) {
         parameters["q"] = query
-        // makeRequest(parameters: parameters, apiMethod: "groups.search")
+        makeRequest(parameters: parameters, apiMethod: "groups.search") { (json, error) in
+            if let error = error {
+                completion?(nil, error)
+            }
+            if let json = json {
+                let groups = json["response"]["items"].arrayValue.map { Groups(json: $0) }
+                //self.saveData(groups)
+                completion?(groups, nil)
+            }
+        }
     }
     
     // Запрос к api
@@ -106,7 +115,7 @@ class VKService {
         
         do {
             try realm.write {
-                //realm.deleteAll()
+                realm.deleteAll()
                 realm.add(data)
             }
         } catch {

@@ -8,24 +8,17 @@
 
 import UIKit
 
-class AllGroupsViewController: UITableViewController {
+class AllGroupsViewController: UITableViewController, UISearchBarDelegate {
 
-    var groups: [(avatar: String, name: String)] = [
-        (avatar: "groupAvatar", name: "Группа 1"),
-        (avatar: "groupAvatar", name: "Группа 2"),
-        (avatar: "groupAvatar", name: "Группа 3")
-    ]
-    var group: Groups?
-    let searchController = UISearchController(searchResultsController: nil)
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var groups: [Groups] = []
+    let service = VKService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // searchController setup
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
+        searchBar.delegate = self
     }
 
     // MARK: - Table view data source
@@ -38,29 +31,32 @@ class AllGroupsViewController: UITableViewController {
         
         // получаем группу
         let group = groups[indexPath.row]
-        cell.avatarImage.image = UIImage(named: group.avatar)
-        cell.titleLabel.text = group.name
+        // выводим
+        cell.setupGroups(group)
         
         return cell
     }
     
-    func searchBarIsEmpty() -> Bool {
-        return searchController.searchBar.text?.isEmpty ?? true
+    // Search
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let text = searchBar.text, !text.isEmpty else {
+            self.groups.removeAll()
+            self.tableView?.reloadData()
+            
+            return
+        }
+        
+        service.searchGroups(query: text) { (groups, error) in
+            // TODO: обработка ошибок
+            if let error = error {
+                print(error)
+            }
+            // получили массив групп
+            if let groups = groups {
+                self.groups = groups
+                // обновить tableView
+                self.tableView?.reloadData()
+            }
+        }
     }
-
-//    func getContentForSearchText(_ searchText: String, scope: String = "All") {
-//        filteredGroups = groups.filter({ (name: String) -> Bool in
-//            return groups["name"].lowercased().contains(searchText.lowercased())
-//        })
-//
-//        tableView.reloadData()
-//    }
 }
-
-extension AllGroupsViewController: UISearchResultsUpdating {
-    // делегат
-    func updateSearchResults(for searchController: UISearchController) {
-        //getContentForSearchText(searchController.searchBar.text!)
-    }
-}
-

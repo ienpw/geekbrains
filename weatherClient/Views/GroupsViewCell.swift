@@ -20,6 +20,7 @@ class GroupsViewCell: UITableViewCell {
         //avatarImage.clipsToBounds = true
         
         // имя
+        titleLabel.numberOfLines = 0
         titleLabel.text = groups.name
     }
 }

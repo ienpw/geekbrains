@@ -34,6 +34,10 @@ class FriendsViewController: UITableViewController {
                 self.tableView?.reloadData()
             }
         }
+        
+//        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        let documentsDirectory = paths[0]
+//        print(documentsDirectory)
     }
 
     // MARK: - Table view data source
@@ -55,7 +59,7 @@ class FriendsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let friendInfoViewController = segue.destination as? FriendInfoViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
-                // передаем id друга и токен в FriendInfoViewController
+                // передаем id друга в FriendInfoViewController
                 friendInfoViewController.friend = friends[indexPath.row]
                 //friendInfoViewController.token = token
             }

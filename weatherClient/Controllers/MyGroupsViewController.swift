@@ -10,7 +10,6 @@ import UIKit
 
 class MyGroupsViewController: UITableViewController {
     
-    //var groups: [(avatar: String, name: String)] = []
     var groups: [Groups] = []
 
     override func viewDidLoad() {
@@ -31,25 +30,6 @@ class MyGroupsViewController: UITableViewController {
         }
     }
     
-    @IBAction func addGroup(_ segue: UIStoryboardSegue) {
-        guard let allGroupsViewController = segue.source as? AllGroupsViewController else {
-            return
-        }
-        
-        // получаем индекс нажатой строки в AllGroupsViewController
-        if let indexPath = allGroupsViewController.tableView.indexPathForSelectedRow {
-            // получаем группу из массива в AllGroupsViewController
-            // и удаляем ее, т.к. добавить группу можно только один раз,
-            // но я не понял как обновить tableView, чтобы удаленная группа
-            // перестала отображаться в таблице
-//            let group = allGroupsViewController.groups.remove(at: indexPath.row)
-            // добавляем полученную группу в массив в MyGroupsViewController
-//            groups.append(group)
-            // обновляем таблицу
-            tableView.reloadData()
-        }
-    }
-
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return groups.count
