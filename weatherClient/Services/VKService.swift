@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 class VKService {
     let apiID = "6618897"
@@ -38,6 +39,7 @@ class VKService {
             }
             if let json = json {
                 let friends = json["response"]["items"].arrayValue.map { Friends(json: $0) }
+                self.saveData(friends)
                 completion?(friends, nil)
             }
         }
@@ -55,6 +57,7 @@ class VKService {
             }
             if let json = json {
                 let photos = json["response"]["items"].arrayValue.map { Photos(json: $0) }
+                self.saveData(photos)
                 completion?(photos, nil)
             }
         }
@@ -70,6 +73,7 @@ class VKService {
             }
             if let json = json {
                 let groups = json["response"]["items"].arrayValue.map { Groups(json: $0) }
+                self.saveData(groups)
                 completion?(groups, nil)
             }
         }
@@ -97,8 +101,16 @@ class VKService {
     }
     
     // сохранение данных в Realm
-    func saveData() {
-        //let realm = try! Realm()
+    func saveData(_ data: [Object]) {
+        let realm = try! Realm()
         
+        do {
+            try realm.write {
+                //realm.deleteAll()
+                realm.add(data)
+            }
+        } catch {
+            print(error)
+        }
     }
 }
