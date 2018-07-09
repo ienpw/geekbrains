@@ -30,51 +30,66 @@ class VKService {
     }
     
     // Получить всех друзей
-    func getAllFriends(completion: (([Friends]?, Error?) -> Void)?) {
+//    func getAllFriends(completion: (([Friends]?, Error?) -> Void)?) {
+//        parameters["fields"] = "photo_50"
+//
+//        makeRequest(parameters: parameters, apiMethod: "friends.get") { (json, error) in
+//            if let error = error {
+//                completion?(nil, error)
+//            }
+//            if let json = json {
+//                let friends = json["response"]["items"].arrayValue.map { Friends(json: $0) }
+//                self.saveData(friends)
+//                completion?(friends, nil)
+//            }
+//        }
+//    }
+    func getAllFriends(completion: ((Error?) -> Void)?) {
         parameters["fields"] = "photo_50"
         
         makeRequest(parameters: parameters, apiMethod: "friends.get") { (json, error) in
             if let error = error {
-                completion?(nil, error)
+                completion?(error)
             }
             if let json = json {
                 let friends = json["response"]["items"].arrayValue.map { Friends(json: $0) }
                 self.saveData(friends)
-                completion?(friends, nil)
+                completion?(nil)
             }
         }
     }
     
     // Получить фотографии друга
-    func getFriendPhotos(userID: String, completion: (([Photos]?, Error?) -> Void)?) {
+    func getFriendPhotos(userID: String, completion: ((Error?) -> Void)?) {
         parameters["owner_id"] = userID
         parameters["no_service_albums"] = "1"
         parameters["skip_hidden"] = "1"
         
         makeRequest(parameters: parameters, apiMethod: "photos.getAll") { (json, error) in
             if let error = error {
-                completion?(nil, error)
+                completion?(error)
             }
             if let json = json {
                 let photos = json["response"]["items"].arrayValue.map { Photos(json: $0) }
-                //self.saveData(photos)
-                completion?(photos, nil)
+                for photo in photos { photo.userID = userID }
+                self.saveData(photos)
+                completion?(nil)
             }
         }
     }
     
     // Получить мои группы
-    func getMyGroups(completion: (([Groups]?, Error?) -> Void)?) {
+    func getMyGroups(completion: ((Error?) -> Void)?) {
         parameters["extended"] = "1"
         
         makeRequest(parameters: parameters, apiMethod: "groups.get") { (json, error) in
             if let error = error {
-                completion?(nil, error)
+                completion?(error)
             }
             if let json = json {
                 let groups = json["response"]["items"].arrayValue.map { Groups(json: $0) }
                 self.saveData(groups)
-                completion?(groups, nil)
+                completion?(nil)
             }
         }
     }
@@ -88,7 +103,6 @@ class VKService {
             }
             if let json = json {
                 let groups = json["response"]["items"].arrayValue.map { Groups(json: $0) }
-                //self.saveData(groups)
                 completion?(groups, nil)
             }
         }
@@ -115,8 +129,9 @@ class VKService {
         
         do {
             try realm.write {
-                realm.deleteAll()
+                //realm.deleteAll()
                 realm.add(data)
+                //print(realm.configuration.fileURL)
             }
         } catch {
             print(error)

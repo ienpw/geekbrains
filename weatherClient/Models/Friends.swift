@@ -24,6 +24,10 @@ class Friends: Object {
         self.lastName = json["last_name"].stringValue
         self.avatarImage = json["photo_50"].stringValue
     }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 //extension Friends: CustomStringConvertible {

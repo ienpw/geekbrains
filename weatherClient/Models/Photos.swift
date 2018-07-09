@@ -15,6 +15,7 @@ class Photos: Object {
     @objc dynamic var width: String = ""
     @objc dynamic var height: String = ""
     @objc dynamic var type: String = ""
+    @objc dynamic var userID: String = ""
     
     convenience init(json: JSON) {
         self.init()
@@ -23,5 +24,9 @@ class Photos: Object {
         self.width = json["sizes"][4]["width"].stringValue
         self.height = json["sizes"][4]["height"].stringValue
         self.type = json["sizes"][4]["type"].stringValue
+    }
+    
+    override static func indexedProperties() -> [String] {
+        return ["userID"]
     }
 }

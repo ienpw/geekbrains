@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FriendsViewController: UITableViewController {
     
@@ -22,16 +23,34 @@ class FriendsViewController: UITableViewController {
         super.viewDidLoad()
         
         let service = VKService()
-        service.getAllFriends() { (friends, error) in
+//        service.getAllFriends() { (friends, error) in
+//            // TODO: обработка ошибок
+//            if let error = error {
+//                print(error)
+//            }
+//            // получили массив друзей
+//            if let friends = friends {
+//                self.friends = friends
+//                // обновить tableView
+//                self.tableView?.reloadData()
+//            }
+//        }
+        service.getAllFriends() { (error) in
             // TODO: обработка ошибок
             if let error = error {
                 print(error)
+                return
             }
-            // получили массив друзей
-            if let friends = friends {
-                self.friends = friends
-                // обновить tableView
+            // получаем массив друзей из Realm
+            do {
+                let realm = try Realm()
+                let friends = realm.objects(Friends.self)
+                self.friends = Array(friends)
+                
                 self.tableView?.reloadData()
+            } catch {
+                // если произошла ошибка, выводим ее в консоль
+                print(error)
             }
         }
         
