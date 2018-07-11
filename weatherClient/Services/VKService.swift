@@ -16,6 +16,7 @@ class VKService {
     let apiUrl = "https://api.vk.com/method/"
     let apiVersion = "5.80"
     var parameters: Parameters
+    let realm = try! Realm()
     
     init(token: String? = nil) {
         // получаем токен
@@ -30,66 +31,64 @@ class VKService {
     }
     
     // Получить всех друзей
-//    func getAllFriends(completion: (([Friends]?, Error?) -> Void)?) {
-//        parameters["fields"] = "photo_50"
-//
-//        makeRequest(parameters: parameters, apiMethod: "friends.get") { (json, error) in
-//            if let error = error {
-//                completion?(nil, error)
-//            }
-//            if let json = json {
-//                let friends = json["response"]["items"].arrayValue.map { Friends(json: $0) }
-//                self.saveData(friends)
-//                completion?(friends, nil)
-//            }
-//        }
-//    }
-    func getAllFriends(completion: ((Error?) -> Void)?) {
-        parameters["fields"] = "photo_50"
-        
-        makeRequest(parameters: parameters, apiMethod: "friends.get") { (json, error) in
-            if let error = error {
-                completion?(error)
-            }
-            if let json = json {
-                let friends = json["response"]["items"].arrayValue.map { Friends(json: $0) }
-                self.saveData(friends)
-                completion?(nil)
+    func getAllFriends(completion: (([Friends]?, Error?) -> Void)?) {
+        let friends = Array(realm.objects(Friends.self))
+        if friends.count > 0 {
+            completion?(friends, nil)
+        } else {
+            parameters["fields"] = "photo_50"
+            makeRequest(parameters: parameters, apiMethod: "friends.get") { (json, error) in
+                if let error = error {
+                    completion?(nil, error)
+                }
+                if let json = json {
+                    let friends = json["response"]["items"].arrayValue.map { Friends(json: $0) }
+                    self.saveData(friends)
+                    completion?(friends, nil)
+                }
             }
         }
     }
     
     // Получить фотографии друга
-    func getFriendPhotos(userID: String, completion: ((Error?) -> Void)?) {
-        parameters["owner_id"] = userID
-        parameters["no_service_albums"] = "1"
-        parameters["skip_hidden"] = "1"
-        
-        makeRequest(parameters: parameters, apiMethod: "photos.getAll") { (json, error) in
-            if let error = error {
-                completion?(error)
-            }
-            if let json = json {
-                let photos = json["response"]["items"].arrayValue.map { Photos(json: $0) }
-                for photo in photos { photo.userID = userID }
-                self.saveData(photos)
-                completion?(nil)
+    func getFriendPhotos(userID: String, completion: (([Photos]?, Error?) -> Void)?) {
+        let photos = Array(realm.objects(Photos.self).filter("userID = '" + userID + "'"))
+        if photos.count > 0 {
+            completion?(photos, nil)
+        } else {
+            parameters["owner_id"] = userID
+            parameters["no_service_albums"] = "1"
+            parameters["skip_hidden"] = "1"
+            makeRequest(parameters: parameters, apiMethod: "photos.getAll") { (json, error) in
+                if let error = error {
+                    completion?(nil, error)
+                }
+                if let json = json {
+                    let photos = json["response"]["items"].arrayValue.map { Photos(json: $0) }
+                    for photo in photos { photo.userID = userID }
+                    self.saveData(photos)
+                    completion?(photos, nil)
+                }
             }
         }
     }
     
     // Получить мои группы
-    func getMyGroups(completion: ((Error?) -> Void)?) {
-        parameters["extended"] = "1"
-        
-        makeRequest(parameters: parameters, apiMethod: "groups.get") { (json, error) in
-            if let error = error {
-                completion?(error)
-            }
-            if let json = json {
-                let groups = json["response"]["items"].arrayValue.map { Groups(json: $0) }
-                self.saveData(groups)
-                completion?(nil)
+    func getMyGroups(completion: (([Groups]?, Error?) -> Void)?) {
+        let groups = Array(realm.objects(Groups.self))
+        if groups.count > 0 {
+            completion?(groups, nil)
+        } else {
+            parameters["extended"] = "1"
+            makeRequest(parameters: parameters, apiMethod: "groups.get") { (json, error) in
+                if let error = error {
+                    completion?(nil, error)
+                }
+                if let json = json {
+                    let groups = json["response"]["items"].arrayValue.map { Groups(json: $0) }
+                    self.saveData(groups)
+                    completion?(groups, nil)
+                }
             }
         }
     }
@@ -125,7 +124,7 @@ class VKService {
     
     // сохранение данных в Realm
     func saveData(_ data: [Object]) {
-        let realm = try! Realm()
+//        let realm = try! Realm()
         
         do {
             try realm.write {

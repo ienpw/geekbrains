@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class MyGroupsViewController: UITableViewController {
     
@@ -16,23 +15,22 @@ class MyGroupsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadData()
+    }
+    
+    func loadData() {
         let service = VKService()
-        service.getMyGroups() { (error) in
+        service.getMyGroups() { (groups, error) in
             // TODO: обработка ошибок
             if let error = error {
                 print(error)
                 return
             }
-            // получаем массив друзей из Realm
-            do {
-                let realm = try Realm()
-                let groups = realm.objects(Groups.self)
-                self.groups = Array(groups)
-                
+            // получили массив групп
+            if let groups = groups {
+                self.groups = groups
+                // обновить tableView
                 self.tableView?.reloadData()
-            } catch {
-                // если произошла ошибка, выводим ее в консоль
-                print(error)
             }
         }
     }

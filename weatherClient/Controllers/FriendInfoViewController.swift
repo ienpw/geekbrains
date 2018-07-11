@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 private let reuseIdentifier = "Cell"
 
@@ -22,24 +21,24 @@ class FriendInfoViewController: UICollectionViewController {
         // title экрана
         self.title = "\(friend!.firstName) \(friend!.lastName)"
         
-        let userID = friend!.id
+        loadData()
+    }
+    
+    func loadData() {
         let service = VKService()
-        service.getFriendPhotos(userID: userID) { (error) in
+        let userID = friend!.id
+        service.getFriendPhotos(userID: userID) { (photos, error) in
             // TODO: обработка ошибок
             if let error = error {
                 print(error)
                 return
             }
-            // получаем массив фотографий из Realm
-            do {
-                let realm = try Realm()
-                let photos = realm.objects(Photos.self).filter("userID = '" + userID + "'")
-                self.photos = Array(photos)
-                
+            // получили массив фотографий
+            if let photos = photos {
+                self.photos = photos
+                // обновить tableView
                 self.collectionView?.reloadData()
-            } catch {
-                print(error)
-            }
+            }            
         }
     }
 

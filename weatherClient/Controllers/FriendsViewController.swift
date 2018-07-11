@@ -7,56 +7,35 @@
 //
 
 import UIKit
-import RealmSwift
 
 class FriendsViewController: UITableViewController {
-    
-//    let friends: [(avatar: String, name: String)] = [
-//        (avatar: "friendAvatar", name: "Вася"),
-//        (avatar: "friendAvatar", name: "Петя"),
-//        (avatar: "girlAvatar", name: "Маша")
-//    ]
-    
+
     var friends: [Friends] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let service = VKService()
-//        service.getAllFriends() { (friends, error) in
-//            // TODO: обработка ошибок
-//            if let error = error {
-//                print(error)
-//            }
-//            // получили массив друзей
-//            if let friends = friends {
-//                self.friends = friends
-//                // обновить tableView
-//                self.tableView?.reloadData()
-//            }
-//        }
-        service.getAllFriends() { (error) in
-            // TODO: обработка ошибок
-            if let error = error {
-                print(error)
-                return
-            }
-            // получаем массив друзей из Realm
-            do {
-                let realm = try Realm()
-                let friends = realm.objects(Friends.self)
-                self.friends = Array(friends)
-                
-                self.tableView?.reloadData()
-            } catch {
-                // если произошла ошибка, выводим ее в консоль
-                print(error)
-            }
-        }
+        loadData()
         
 //        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 //        let documentsDirectory = paths[0]
 //        print(documentsDirectory)
+    }
+    
+    func loadData() {
+        let service = VKService()
+        service.getAllFriends() { (friends, error) in
+            // TODO: обработка ошибок
+            if let error = error {
+                print(error)
+            }
+            // получили массив друзей
+            if let friends = friends {
+                self.friends = friends
+                // обновить tableView
+                self.tableView?.reloadData()
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -80,7 +59,6 @@ class FriendsViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 // передаем id друга в FriendInfoViewController
                 friendInfoViewController.friend = friends[indexPath.row]
-                //friendInfoViewController.token = token
             }
         }
     }
