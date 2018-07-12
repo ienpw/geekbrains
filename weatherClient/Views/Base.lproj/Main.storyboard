@@ -270,7 +270,7 @@
                                 <connections>
                                     <outlet property="avatarImage" destination="ZaI-lF-35A" id="LkK-gt-BzP"/>
                                     <outlet property="titleLabel" destination="xhV-LI-VI2" id="JCl-vW-ns2"/>
-                                    <segue destination="3XW-TX-lv6" kind="unwind" unwindAction="addGroup:" id="fsa-B0-f7k"/>
+                                    <segue destination="3XW-TX-lv6" kind="unwind" unwindAction="saveNewGroup:" id="Qfq-eX-wso"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

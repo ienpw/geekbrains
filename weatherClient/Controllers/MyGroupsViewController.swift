@@ -11,6 +11,7 @@ import UIKit
 class MyGroupsViewController: UITableViewController {
     
     var groups: [Groups] = []
+    let service = VKService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,6 @@ class MyGroupsViewController: UITableViewController {
     }
     
     func loadData() {
-        let service = VKService()
         service.getMyGroups() { (groups, error) in
             // TODO: обработка ошибок
             if let error = error {
@@ -33,6 +33,10 @@ class MyGroupsViewController: UITableViewController {
                 self.tableView?.reloadData()
             }
         }
+    }
+    
+    @IBAction func saveNewGroup(_ segue: UIStoryboardSegue) {
+        loadData()
     }
     
     // MARK: - Table view data source
@@ -54,6 +58,10 @@ class MyGroupsViewController: UITableViewController {
     // Удаление группы
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            // удалить из Realm
+            let group = groups[indexPath.row]
+            service.deleteData(group)
+            // удалить из tableView
             groups.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }

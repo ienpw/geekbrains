@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "Cell"
 
 class FriendInfoViewController: UICollectionViewController {
     
+    let realm = try! Realm()
+    var notificationToken: NotificationToken?
     var friend: Friends?
-    var photos: [Photos] = []
+    var photos: Results<Photos>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,24 +24,36 @@ class FriendInfoViewController: UICollectionViewController {
         // title экрана
         self.title = "\(friend!.firstName) \(friend!.lastName)"
         
-        loadData()
+        getPhotos()
+        refreshNetworkData()
     }
     
-    func loadData() {
+    // Получаем фотографии друга из Realm
+    func getPhotos() {
+        let userID = friend!.id
+        self.photos = realm.objects(Photos.self).filter("userID = '" + userID + "'")
+        
+        notificationToken = photos.observe { (changes) in
+            switch changes {
+            case .initial:
+                self.collectionView?.reloadData()
+            case .update:
+                self.collectionView?.reloadData()
+            case .error(let error):
+                print(error)
+            }
+        }
+    }
+    
+    // Запрос к API VK
+    func refreshNetworkData() {
         let service = VKService()
         let userID = friend!.id
-        service.getFriendPhotos(userID: userID) { (photos, error) in
+        service.getFriendPhotos(userID: userID) { (error) in
             // TODO: обработка ошибок
             if let error = error {
                 print(error)
-                return
             }
-            // получили массив фотографий
-            if let photos = photos {
-                self.photos = photos
-                // обновить tableView
-                self.collectionView?.reloadData()
-            }            
         }
     }
 

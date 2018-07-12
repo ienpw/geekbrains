@@ -59,4 +59,13 @@ class AllGroupsViewController: UITableViewController, UISearchBarDelegate {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            // получаем группу
+            let group = groups[indexPath.row]
+            // сохраняем новую группу
+            service.saveGroup(group)
+        }
+    }
 }

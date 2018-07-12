@@ -7,33 +7,44 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FriendsViewController: UITableViewController {
 
-    var friends: [Friends] = []
+    let realm = try! Realm()
+    var notificationToken: NotificationToken?
+    var friends: Results<Friends>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadData()
-        
-//        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        let documentsDirectory = paths[0]
-//        print(documentsDirectory)
+        getFriends()
+        refreshNetworkData()
     }
     
-    func loadData() {
+    // Получаем друзей из Realm
+    func getFriends() {
+        self.friends = realm.objects(Friends.self).sorted(byKeyPath: "lastName")
+        
+        notificationToken = friends.observe { (changes) in
+            switch changes {
+            case .initial:
+                self.tableView.reloadData()
+            case .update:
+                self.tableView.reloadData()
+            case .error(let error):
+                print(error)
+            }
+        }
+    }
+    
+    // Запрос к API VK
+    func refreshNetworkData() {
         let service = VKService()
-        service.getAllFriends() { (friends, error) in
+        service.getAllFriends() { (error) in
             // TODO: обработка ошибок
             if let error = error {
                 print(error)
-            }
-            // получили массив друзей
-            if let friends = friends {
-                self.friends = friends
-                // обновить tableView
-                self.tableView?.reloadData()
             }
         }
     }
