@@ -18,11 +18,11 @@
 		9FA6E5E520E0227600FCA4C8 /* MyGroupsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA6E5E420E0227600FCA4C8 /* MyGroupsViewCell.swift */; };
 		9FA6E5E720E02A1500FCA4C8 /* FriendInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA6E5E620E02A1500FCA4C8 /* FriendInfoViewController.swift */; };
 		9FA6E5E920E031E900FCA4C8 /* FriendInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA6E5E820E031E900FCA4C8 /* FriendInfoViewCell.swift */; };
+		9FADA631210F5C77000C6B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FADA630210F5C76000C6B54 /* Assets.xcassets */; };
 		9FC4CA7120DBAB21002CC5CB /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC4CA7020DBAB21002CC5CB /* MyTabBarController.swift */; };
 		9FF7A64B20D6F7A20001E445 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7A64A20D6F7A20001E445 /* AppDelegate.swift */; };
 		9FF7A64D20D6F7A20001E445 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7A64C20D6F7A20001E445 /* LoginViewController.swift */; };
 		9FF7A65020D6F7A20001E445 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF7A64E20D6F7A20001E445 /* Main.storyboard */; };
-		9FF7A65220D6F7A20001E445 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FF7A65120D6F7A20001E445 /* Assets.xcassets */; };
 		9FF7A65520D6F7A20001E445 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF7A65320D6F7A20001E445 /* LaunchScreen.storyboard */; };
 		9FFAC4E620E98A6A0049F6BC /* TokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFAC4E520E98A6A0049F6BC /* TokenViewController.swift */; };
 		9FFAC4E820E98A9B0049F6BC /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFAC4E720E98A9B0049F6BC /* Friends.swift */; };
@@ -42,12 +42,12 @@
 		9FA6E5E420E0227600FCA4C8 /* MyGroupsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewCell.swift; sourceTree = "<group>"; };
 		9FA6E5E620E02A1500FCA4C8 /* FriendInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendInfoViewController.swift; sourceTree = "<group>"; };
 		9FA6E5E820E031E900FCA4C8 /* FriendInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendInfoViewCell.swift; sourceTree = "<group>"; };
+		9FADA630210F5C76000C6B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FC4CA7020DBAB21002CC5CB /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		9FF7A64720D6F7A20001E445 /* weatherClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF7A64A20D6F7A20001E445 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FF7A64C20D6F7A20001E445 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9FF7A64F20D6F7A20001E445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9FF7A65120D6F7A20001E445 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FF7A65420D6F7A20001E445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9FF7A65620D6F7A20001E445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FFAC4E520E98A6A0049F6BC /* TokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewController.swift; sourceTree = "<group>"; };
@@ -121,8 +121,8 @@
 				9FF7A65C20D7BCA30001E445 /* Models */,
 				9FF7A65E20D7BCB40001E445 /* Views */,
 				9F2C34E820E515790061757C /* Services */,
-				9FF7A65120D6F7A20001E445 /* Assets.xcassets */,
 				9FF7A65620D6F7A20001E445 /* Info.plist */,
+				9FADA630210F5C76000C6B54 /* Assets.xcassets */,
 			);
 			path = weatherClient;
 			sourceTree = "<group>";
@@ -235,7 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FF7A65520D6F7A20001E445 /* LaunchScreen.storyboard in Resources */,
-				9FF7A65220D6F7A20001E445 /* Assets.xcassets in Resources */,
+				9FADA631210F5C77000C6B54 /* Assets.xcassets in Resources */,
 				9FF7A65020D6F7A20001E445 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
