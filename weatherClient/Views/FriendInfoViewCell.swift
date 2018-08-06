@@ -13,9 +13,6 @@ class FriendInfoViewCell: UICollectionViewCell {
     
     func setupPhoto(_ photos: Photos) {
         // фото
-        friendImage.kf.setImage(with: URL(string: photos.url))
-        // делаем закругленные углы
-        //avatarImage.layer.cornerRadius = avatarImage.frame.size.width / 2
-        //avatarImage.clipsToBounds = true        
+        friendImage.kf.setImage(with: URL(string: photos.url))        
     }
 }
