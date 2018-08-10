@@ -19,7 +19,13 @@ class NewsPhotoViewCell: UITableViewCell {
     @IBOutlet weak var repostsLabel: UILabel!
     @IBOutlet weak var viewsLabel: UILabel!
     
-    func setupNews(news: News) {
+    let queue: OperationQueue = {
+        let queue = OperationQueue()
+        queue.qualityOfService = .userInteractive
+        return queue
+    }()
+    
+    func setupNews(news: News, cell: NewsPhotoViewCell, indexPath: IndexPath, tableView: UITableView) {
         // аватар
         avatarImage.kf.setImage(with: URL(string: news.avatarImage))
         
@@ -32,7 +38,19 @@ class NewsPhotoViewCell: UITableViewCell {
         titleLabel.text = news.profileName
         
         // картинка
-        newsImage.kf.setImage(with: URL(string: news.attachments!.url))
+        let getCacheImage = GetCacheImage(url: news.attachments!.url)
+        getCacheImage.completionBlock = {
+            OperationQueue.main.addOperation {
+                self.newsImage.image = getCacheImage.outputImage
+            }
+        }
+    
+        let setImageToRow = SetImageToRow(cell: cell, indexPath: indexPath, tableView: tableView)
+        setImageToRow.addDependency(getCacheImage)
+        queue.addOperation(getCacheImage)
+        OperationQueue.main.addOperation(setImageToRow)
+        
+        //newsImage.kf.setImage(with: URL(string: news.attachments!.url))
         
         // текст
         newsTextLabel.text = news.text

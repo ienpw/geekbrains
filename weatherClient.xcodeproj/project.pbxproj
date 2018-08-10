@@ -23,6 +23,8 @@
 		9FA6E5E920E031E900FCA4C8 /* FriendInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA6E5E820E031E900FCA4C8 /* FriendInfoViewCell.swift */; };
 		9FADA631210F5C77000C6B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FADA630210F5C76000C6B54 /* Assets.xcassets */; };
 		9FC4CA7120DBAB21002CC5CB /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC4CA7020DBAB21002CC5CB /* MyTabBarController.swift */; };
+		9FD86ECE211D997E00A1A913 /* GetCacheImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD86ECD211D997E00A1A913 /* GetCacheImage.swift */; };
+		9FD86ED0211DA5E700A1A913 /* SetImageToRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD86ECF211DA5E700A1A913 /* SetImageToRow.swift */; };
 		9FF7A64B20D6F7A20001E445 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7A64A20D6F7A20001E445 /* AppDelegate.swift */; };
 		9FF7A64D20D6F7A20001E445 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7A64C20D6F7A20001E445 /* LoginViewController.swift */; };
 		9FF7A65020D6F7A20001E445 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF7A64E20D6F7A20001E445 /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		9FA6E5E820E031E900FCA4C8 /* FriendInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendInfoViewCell.swift; sourceTree = "<group>"; };
 		9FADA630210F5C76000C6B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FC4CA7020DBAB21002CC5CB /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		9FD86ECD211D997E00A1A913 /* GetCacheImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCacheImage.swift; sourceTree = "<group>"; };
+		9FD86ECF211DA5E700A1A913 /* SetImageToRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetImageToRow.swift; sourceTree = "<group>"; };
 		9FF7A64720D6F7A20001E445 /* weatherClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF7A64A20D6F7A20001E445 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FF7A64C20D6F7A20001E445 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				9FFAC4E920E9AF0E0049F6BC /* Photos.swift */,
 				9FFAC4EB20EA153B0049F6BC /* Groups.swift */,
 				9F46D08D21146D310087AE99 /* News.swift */,
+				9FD86ECD211D997E00A1A913 /* GetCacheImage.swift */,
+				9FD86ECF211DA5E700A1A913 /* SetImageToRow.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FD86ED0211DA5E700A1A913 /* SetImageToRow.swift in Sources */,
 				9FF7A64D20D6F7A20001E445 /* LoginViewController.swift in Sources */,
 				9FA6E5E520E0227600FCA4C8 /* MyGroupsViewCell.swift in Sources */,
 				9FA6E5E720E02A1500FCA4C8 /* FriendInfoViewController.swift in Sources */,
@@ -330,6 +337,7 @@
 				9FA6E5DF20DFDA0500FCA4C8 /* AllGroupsViewController.swift in Sources */,
 				9FA6E5E120DFDB3500FCA4C8 /* GroupsViewCell.swift in Sources */,
 				9F46D08E21146D310087AE99 /* News.swift in Sources */,
+				9FD86ECE211D997E00A1A913 /* GetCacheImage.swift in Sources */,
 				9FFAC4EC20EA153B0049F6BC /* Groups.swift in Sources */,
 				9FFAC4E620E98A6A0049F6BC /* TokenViewController.swift in Sources */,
 				9F2C34EC20E527820061757C /* VKLoginViewController.swift in Sources */,

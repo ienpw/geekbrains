@@ -19,8 +19,6 @@ class NewsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 155
-        
         loadData()
     }
     
@@ -50,11 +48,21 @@ class NewsViewController: UITableViewController {
         // получаем новость
         let newsItem = news[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "newsTextCell", for: indexPath) as! NewsTextViewCell
-        
-        // выводим
-        cell.setupNews(news: newsItem)
-        
-        return cell
+        if newsItem.attachments == nil {
+            tableView.rowHeight = 155
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "newsTextCell", for: indexPath) as! NewsTextViewCell
+            cell.setupNews(news: newsItem)
+            
+            return cell
+        } else {
+            tableView.rowHeight = 350
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "newsPhotoCell", for: indexPath) as! NewsPhotoViewCell
+            
+            cell.setupNews(news: newsItem, cell: cell, indexPath: indexPath, tableView: tableView)
+            
+            return cell
+        }
     }
 }
