@@ -1,20 +1,20 @@
 //
-//  SetImageToRow.swift
+//  SetPhotoToRow.swift
 //  weatherClient
 //
-//  Created by Inpu on 10.08.18.
+//  Created by Inpu on 17.08.18.
 //  Copyright © 2018 sergey.shvetsov. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class SetImageToRow: Operation {
+class SetPhotoToRow: Operation {
     private let indexPath: IndexPath
     private weak var tableView: UITableView?
-    private var cell: NewsTextViewCell?
+    private var cell: NewsPhotoViewCell?
     
-    init(cell: NewsTextViewCell, indexPath: IndexPath, tableView: UITableView) {
+    init(cell: NewsPhotoViewCell, indexPath: IndexPath, tableView: UITableView) {
         self.indexPath = indexPath
         self.tableView = tableView
         self.cell = cell

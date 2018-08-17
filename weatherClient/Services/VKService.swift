@@ -112,7 +112,7 @@ class VKService {
                     let newsProfiles = json["response"]["profiles"].arrayValue
                     let newsGroups = json["response"]["groups"].arrayValue
                     
-                    // добавляем в new аватар и имя автора
+                    // добавляем в news аватар и имя автора
                     for item in news {
                         if item.sourceId > 0 {
                             // берем данные из профиля пользователя (секция profiles)

@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import RealmSwift
+//import RealmSwift
 
 class NewsViewController: UITableViewController {
     
-    let realm = try! Realm()
-    var notificationToken: NotificationToken?
+    //let realm = try! Realm()
+    //var notificationToken: NotificationToken?
     
     var news: [News] = []
 
@@ -48,21 +48,40 @@ class NewsViewController: UITableViewController {
         // получаем новость
         let newsItem = news[indexPath.row]
         
-        if newsItem.attachments == nil {
-            tableView.rowHeight = 155
-            
+        if newsItem.type == "post" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "newsTextCell", for: indexPath) as! NewsTextViewCell
-            cell.setupNews(news: newsItem)
-            
+            cell.setupNews(news: newsItem, cell: cell, indexPath: indexPath, tableView: tableView)
+        
+            tableView.rowHeight = newsItem.cellHeight
+        
             return cell
         } else {
-            tableView.rowHeight = 350
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "newsPhotoCell", for: indexPath) as! NewsPhotoViewCell
-            
             cell.setupNews(news: newsItem, cell: cell, indexPath: indexPath, tableView: tableView)
+            
+            tableView.rowHeight = newsItem.cellHeight
             
             return cell
         }
+        
+//        if newsItem.attachments == nil {
+//            //tableView.rowHeight = UITableViewAutomaticDimension
+//            //tableView.estimatedRowHeight = 155
+//
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "newsTextCell", for: indexPath) as! NewsTextViewCell
+//            cell.setupNews(news: newsItem)
+//            tableView.rowHeight = cell.cellHeight
+//
+//            return cell
+//        }
+//        else {
+//            tableView.rowHeight = 350
+//
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "newsPhotoCell", for: indexPath) as! NewsPhotoViewCell
+//
+//            cell.setupNews(news: newsItem, cell: cell, indexPath: indexPath, tableView: tableView)
+//
+//            return cell
+//        }
     }
 }
