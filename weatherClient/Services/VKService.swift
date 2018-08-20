@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import RealmSwift
+import FirebaseDatabase
 
 class VKService {
     let apiID = "6618897"
@@ -61,7 +62,6 @@ class VKService {
             }
         }
     }
-
     
     // Получить фотографии друга
     func getFriendPhotos(userID: String, completion: ((Error?) -> Void)?) {
@@ -185,7 +185,18 @@ class VKService {
     
     // Сохранить новую группу
     func saveGroup(_ group: Groups) {
+        // сохраняем группу в realm
         saveData(group)
+        
+        // сохраняем группу пользователя в firebase
+        if let userId = UserDefaults.standard.string(forKey: "userId") {
+            let db = Database.database().reference()
+            let data = ["id": group.id,
+                        "name": group.name] as [String : Any]
+            // сохраняем в Users/userId/groups, в качестве ключа внутри groups используем Id группы
+            let updates = ["/Users/\(userId)/groups/\(group.id)": data]
+            db.updateChildValues(updates)
+        }
     }
     
     // Запрос к api

@@ -8,5 +8,7 @@ target 'weatherClient' do
   pod 'SwiftyJSON'
   pod 'Kingfisher'
   pod 'RealmSwift'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
 end

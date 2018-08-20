@@ -23,9 +23,11 @@
 		9FA6E5E720E02A1500FCA4C8 /* FriendInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA6E5E620E02A1500FCA4C8 /* FriendInfoViewController.swift */; };
 		9FA6E5E920E031E900FCA4C8 /* FriendInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA6E5E820E031E900FCA4C8 /* FriendInfoViewCell.swift */; };
 		9FC4CA7120DBAB21002CC5CB /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC4CA7020DBAB21002CC5CB /* MyTabBarController.swift */; };
+		9FCED807212754BE00FCDAD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FCED806212754BE00FCDAD3 /* GoogleService-Info.plist */; };
 		9FD86ECE211D997E00A1A913 /* GetCacheImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD86ECD211D997E00A1A913 /* GetCacheImage.swift */; };
 		9FD86ED0211DA5E700A1A913 /* SetImageToRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD86ECF211DA5E700A1A913 /* SetImageToRow.swift */; };
 		9FDA336B2126E297005EEC69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FDA336A2126E296005EEC69 /* Assets.xcassets */; };
+		9FDABE43212A004300C45570 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDABE42212A004300C45570 /* TestViewController.swift */; };
 		9FE8E9D42125E9F1002D2E79 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8E9D32125E9F1002D2E79 /* Photo.swift */; };
 		9FF7A64B20D6F7A20001E445 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7A64A20D6F7A20001E445 /* AppDelegate.swift */; };
 		9FF7A64D20D6F7A20001E445 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7A64C20D6F7A20001E445 /* LoginViewController.swift */; };
@@ -57,9 +59,11 @@
 		9FA6E5E620E02A1500FCA4C8 /* FriendInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendInfoViewController.swift; sourceTree = "<group>"; };
 		9FA6E5E820E031E900FCA4C8 /* FriendInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendInfoViewCell.swift; sourceTree = "<group>"; };
 		9FC4CA7020DBAB21002CC5CB /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		9FCED806212754BE00FCDAD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9FD86ECD211D997E00A1A913 /* GetCacheImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCacheImage.swift; sourceTree = "<group>"; };
 		9FD86ECF211DA5E700A1A913 /* SetImageToRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetImageToRow.swift; sourceTree = "<group>"; };
 		9FDA336A2126E296005EEC69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9FDABE42212A004300C45570 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		9FE8E9D32125E9F1002D2E79 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		9FF7A64720D6F7A20001E445 /* weatherClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF7A64A20D6F7A20001E445 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				9FF7A65E20D7BCB40001E445 /* Views */,
 				9F2C34E820E515790061757C /* Services */,
 				9FF7A65620D6F7A20001E445 /* Info.plist */,
+				9FCED806212754BE00FCDAD3 /* GoogleService-Info.plist */,
 				9FDA336A2126E296005EEC69 /* Assets.xcassets */,
 			);
 			path = weatherClient;
@@ -167,6 +172,7 @@
 		9FF7A65D20D7BCAC0001E445 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9FDABE42212A004300C45570 /* TestViewController.swift */,
 				9FF7A64C20D6F7A20001E445 /* LoginViewController.swift */,
 				9FC4CA7020DBAB21002CC5CB /* MyTabBarController.swift */,
 				9FA6E5DC20DEACEC00FCA4C8 /* FriendsViewController.swift */,
@@ -265,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FF7A65520D6F7A20001E445 /* LaunchScreen.storyboard in Resources */,
+				9FCED807212754BE00FCDAD3 /* GoogleService-Info.plist in Resources */,
 				9FDA336B2126E297005EEC69 /* Assets.xcassets in Resources */,
 				9FF7A65020D6F7A20001E445 /* Main.storyboard in Resources */,
 			);
@@ -281,18 +288,24 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-weatherClient/Pods-weatherClient-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -338,6 +351,7 @@
 				9F0E7B1B2125F2B000EAE4BD /* NewsPhotoViewCell.swift in Sources */,
 				9FA6E5E920E031E900FCA4C8 /* FriendInfoViewCell.swift in Sources */,
 				9FF9BDA62117372F00D9CF23 /* GetDataOperation.swift in Sources */,
+				9FDABE43212A004300C45570 /* TestViewController.swift in Sources */,
 				9F2C34EA20E517D20061757C /* VKService.swift in Sources */,
 				9FF9BDA8211738C100D9CF23 /* AsyncOperation.swift in Sources */,
 				9F46D092211471AF0087AE99 /* NewsViewController.swift in Sources */,
